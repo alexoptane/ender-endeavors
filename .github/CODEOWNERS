@@ -1,0 +1,5 @@
+# Require the repository owner to review every proposed change.
+* @alexoptane
+
+# Protect changes to this file with the same owner review requirement.
+/.github/CODEOWNERS @alexoptane
