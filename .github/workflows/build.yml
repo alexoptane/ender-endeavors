@@ -1,30 +1,99 @@
-# Automatically build the project and run any configured tests for every push
-# and submitted pull request. This can help catch issues that only occur on
-# certain platforms or Java versions, and provides a first line of defence
-# against bad commits.
+name: Build and release Endermod
 
-name: build
-on: [pull_request, push]
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - 'v*'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
+    name: Generate data and build mod
     runs-on: ubuntu-24.04
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v6
-      - name: validate gradle wrapper
+
+      - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v6
-      - name: setup jdk
+
+      - name: Set up Java 25
         uses: actions/setup-java@v5
         with:
+          distribution: temurin
           java-version: '25'
-          distribution: 'microsoft'
-      - name: make gradle wrapper executable
+          cache: gradle
+
+      - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
-      - name: build
-        run: ./gradlew build
-      - name: capture build artifacts
+
+      - name: Validate release tag version
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          set -euo pipefail
+          mod_version="$(sed -n 's/^version=//p' gradle.properties | head -n 1)"
+          expected_tag="v${mod_version}"
+          if [[ -z "$mod_version" || "$GITHUB_REF_NAME" != "$expected_tag" ]]; then
+            echo "Tag '$GITHUB_REF_NAME' must match the mod version ('$expected_tag')." >&2
+            exit 1
+          fi
+
+      - name: Run Fabric data generation
+        run: ./gradlew --no-daemon runDatagen
+        env:
+          JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
+
+      - name: Build mod
+        run: ./gradlew --no-daemon build
+        env:
+          JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
+
+      - name: Select distributable mod JAR
+        id: distributable
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t jars < <(find build/libs -maxdepth 1 -type f -name '*.jar' ! -name '*-sources.jar' ! -name '*-dev.jar' | sort)
+          if [[ ${#jars[@]} -ne 1 ]]; then
+            echo "Expected exactly one distributable JAR; found ${#jars[@]}." >&2
+            find build/libs -maxdepth 1 -type f -name '*.jar' -print >&2 || true
+            exit 1
+          fi
+          echo "path=${jars[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload distributable JAR
         uses: actions/upload-artifact@v7
         with:
-          name: Artifacts
-          path: build/libs/
+          name: endermod-jar
+          path: ${{ steps.distributable.outputs.path }}
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download distributable JAR
+        uses: actions/download-artifact@v8
+        with:
+          name: endermod-jar
+          path: dist
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: dist/*.jar
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
