@@ -2,6 +2,7 @@ package com.example.client.datagen;
 
 import com.example.client.datagen.lang.EndermodEnglishLangProvider;
 import com.example.client.datagen.lang.EndermodSpanishLangProvider;
+import com.example.client.datagen.recipes.ModRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -11,5 +12,6 @@ public class EndermodDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack endermodPack = fabricDataGenerator.createPack();
 		endermodPack.addProvider(EndermodEnglishLangProvider::new);
 		endermodPack.addProvider(EndermodSpanishLangProvider::new);
+		endermodPack.addProvider(ModRecipeProvider::new);
 	}
 }

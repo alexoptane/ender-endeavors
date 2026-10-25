@@ -1,4 +1,4 @@
-package com.example.client.recipes;
+package com.example.client.datagen.recipes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
