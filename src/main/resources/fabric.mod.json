@@ -1,18 +1,21 @@
 {
 	"schemaVersion": 1,
-	"id": "template-mod",
+	"id": "ender-mod",
 	"version": "${version}",
-	"name": "Template Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Endermod",
+	"description": "A work-in-progress Fabric mod that aims to make Minecraft's End more challenging and rewarding with reworked mechanics, new challenges, and clearer progression.",
 	"authors": [
-		"Me!"
+		"AlexOptane",
+		"Casado",
+		"gonza333",
+		"miguelbgo"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/alexoptane/endermod",
+		"sources": "https://github.com/alexoptane/endermod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/template-mod/icon.png",
+	"icon": "assets/endermod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
