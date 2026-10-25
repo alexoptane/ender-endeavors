@@ -22,7 +22,7 @@
 			"com.example.client.TemplateModClient"
 		],
 		"fabric-datagen": [
-			"com.example.client.TemplateModDataGenerator"
+			"com.example.client.datagen.EndermodDataGenerator"
 		]
 	},
 	"mixins": [
