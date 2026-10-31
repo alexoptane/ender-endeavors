@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "endermod",
+	"id": "ender-endeavors",
 	"version": "${version}",
-	"name": "Endermod",
+	"name": "Ender Endeavors",
 	"description": "A work-in-progress Fabric mod that aims to make Minecraft's End more challenging and rewarding with reworked mechanics, new challenges, and clearer progression.",
 	"authors": [
 		"AlexOptane",
@@ -11,27 +11,27 @@
 		"miguelbgo"
 	],
 	"contact": {
-		"homepage": "https://github.com/alexoptane/endermod",
-		"sources": "https://github.com/alexoptane/endermod"
+		"homepage": "https://github.com/alexoptane/ender-endeavors",
+		"sources": "https://github.com/alexoptane/ender-endeavors"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/endermod/icon.png",
+	"icon": "assets/ender-endeavors/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.TemplateMod"
+			"com.optane.EnderEndeavors"
 		],
 		"client": [
-			"com.example.client.TemplateModClient"
+			"com.optane.client.EnderEndeavorsClient"
 		],
 		"fabric-datagen": [
-			"com.example.client.datagen.EndermodDataGenerator"
+			"com.optane.client.datagen.EnderEndeavorsDataGenerator"
 		]
 	},
 	"mixins": [
-		"template-mod.mixins.json",
+		"ender-endeavors.mixins.json",
 		{
-			"config": "template-mod.client.mixins.json",
+			"config": "ender-endeavors.client.mixins.json",
 			"environment": "client"
 		}
 	],

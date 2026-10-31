@@ -1,6 +1,6 @@
-package com.example;
+package com.optane;
 
-import com.example.registry.ModCreativeTab;
+import com.optane.registry.ModCreativeTab;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -9,18 +9,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Main entry point for the Endermod.
+ * Main entry point for the Ender Endeavors.
  */
-public class TemplateMod implements ModInitializer {
+public class EnderEndeavors implements ModInitializer {
 
-	public static final String MOD_ID = "template-mod";
+	public static final String MOD_ID = "ender-endeavors";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
 		ModCreativeTab.register();
-		LOGGER.info("Endermod initialized!");
+		LOGGER.info("Ender Endeavors initialized!");
 	}
 
 	/**

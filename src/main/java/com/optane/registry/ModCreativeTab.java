@@ -1,8 +1,8 @@
-package com.example.registry;
+package com.optane.registry;
 
-import com.example.TemplateMod;
+import com.optane.EnderEndeavors;
 
-import com.example.lang.ModTranslationKeys;
+import com.optane.lang.ModTranslationKeys;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,22 +14,22 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 /**
- * Registers all custom creative mode tabs for the Endermod.
+ * Registers all custom creative mode tabs for the Ender Endeavors.
  */
 public final class ModCreativeTab {
 
     /**
-     * Resource key identifying the Endermod creative tab within the registry.
+     * Resource key identifying the Ender Endeavors creative tab within the registry.
      */
-    public static final ResourceKey<CreativeModeTab> ENDERMOD_TAB_KEY =
-            ResourceKey.create(Registries.CREATIVE_MODE_TAB, TemplateMod.id("endermod"));
+    public static final ResourceKey<CreativeModeTab> ENDER_ENDEAVORS_TAB_KEY =
+            ResourceKey.create(Registries.CREATIVE_MODE_TAB, EnderEndeavors.id("ender-endeavors"));
 
     /**
-     * The registered Endermod creative mode tab instance.
+     * The registered Ender Endeavors creative mode tab instance.
      */
-    public static final CreativeModeTab ENDERMOD_TAB = Registry.register(
+    public static final CreativeModeTab ENDER_ENDEAVORS_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
-            ENDERMOD_TAB_KEY,
+            ENDER_ENDEAVORS_TAB_KEY,
             FabricCreativeModeTab.builder()
                     .title(Component.translatable(ModTranslationKeys.CREATIVE_TAB_TITLE))
                     .icon(() -> new ItemStack(Items.ENDER_PEARL))
@@ -42,7 +42,7 @@ public final class ModCreativeTab {
     }
 
     /**
-     * Populates the Endermod creative tab with all mod items
+     * Populates the Ender Endeavors creative tab with all mod items
      * @param context  display context provided by the creative inventory
      * @param output   collector that accepts item stacks to display in the tab
      */
@@ -56,7 +56,7 @@ public final class ModCreativeTab {
      * Must be called during mod initialization.
      */
     public static void register() {
-        TemplateMod.LOGGER.info("Registering creative tabs for " + TemplateMod.MOD_ID);
-        TemplateMod.LOGGER.info("Registered creative tab key: " + ENDERMOD_TAB_KEY.identifier());
+        EnderEndeavors.LOGGER.info("Registering creative tabs for " + EnderEndeavors.MOD_ID);
+        EnderEndeavors.LOGGER.info("Registered creative tab key: " + ENDER_ENDEAVORS_TAB_KEY.identifier());
     }
 }

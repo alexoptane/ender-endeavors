@@ -15,7 +15,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"endermod" {
+		"ender-endeavors" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -25,7 +25,7 @@ loom {
 fabricApi {
 	configureDataGeneration {
 		client = true
-		modId = "endermod"
+		modId = "ender-endeavors"
 	}
 }
 

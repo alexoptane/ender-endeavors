@@ -1,4 +1,4 @@
-package com.example.lang;
+package com.optane.lang;
 
 /**
  * Translation keys repository
@@ -6,10 +6,10 @@ package com.example.lang;
 public final class ModTranslationKeys {
     /** Prevents instantiating */
     private ModTranslationKeys() {}
-    private static final String TEXT_PREFIX = "text.endermod.";
+    private static final String TEXT_PREFIX = "text.ender-endeavors.";
 
     /**
-     * Translation keys autobuilder with "text.endermod." prefix
+     * Translation keys autobuilder with "text.ender-endeavors." prefix
      * @param name Translation key suffix
      * @return Full translation key
      */

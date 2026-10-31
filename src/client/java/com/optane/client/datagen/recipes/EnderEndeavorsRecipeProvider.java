@@ -1,4 +1,4 @@
-package com.example.client.datagen.recipes;
+package com.optane.client.datagen.recipes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -13,13 +13,13 @@ import java.util.concurrent.CompletableFuture;
 /**
  *  Generates all data-driven recipes for the mod.
  */
-public class EndermodRecipeProvider extends FabricRecipeProvider {
+public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
 
     /**
      * @param output            pack output destination for generated files
      * @param registriesFuture  async registry lookup used by the data generation pipeline
      */
-    public EndermodRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public EnderEndeavorsRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -48,18 +48,16 @@ public class EndermodRecipeProvider extends FabricRecipeProvider {
              */
             private void registerEndcloudRecipes() {
 
-                /** --- Example: Endcloud block (4x Endcloud Dust, like Glowstone) ---
-                * private void registerEndcloudRecipes() {
-                *     shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDCLOUD)
-                *         .requires(ModItems.ENDCLOUD_DUST)
-                *         .requires(ModItems.ENDCLOUD_DUST)
-                *         .requires(ModItems.ENDCLOUD_DUST)
-                *         .requires(ModItems.ENDCLOUD_DUST)
-                *         .unlockedBy(getHasName(ModItems.ENDCLOUD_DUST), has(ModItems.ENDCLOUD_DUST))
-                *         .save(exporter);
-                * }
-                */
-
+//                 --- Example: Endcloud block (4x Endcloud Dust, like Glowstone) ---
+//                private void registerEndcloudRecipes() {
+//                    shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDCLOUD)
+//                        .requires(ModItems.ENDCLOUD_DUST)
+//                        .requires(ModItems.ENDCLOUD_DUST)
+//                        .requires(ModItems.ENDCLOUD_DUST)
+//                        .requires(ModItems.ENDCLOUD_DUST)
+//                        .unlockedBy(getHasName(ModItems.ENDCLOUD_DUST), has(ModItems.ENDCLOUD_DUST))
+//                        .save(exporter);
+//                }
             }
         };
     }
@@ -70,6 +68,6 @@ public class EndermodRecipeProvider extends FabricRecipeProvider {
     @Override
     public String getName() {
 
-        return "EndMod Recipe Provider";
+        return "Ender Endeavors Recipe Provider";
     }
 }
