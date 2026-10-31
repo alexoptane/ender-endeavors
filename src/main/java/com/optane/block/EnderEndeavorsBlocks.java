@@ -2,7 +2,7 @@ package com.optane.block;
 
 import com.optane.EnderEndeavors;
 import com.optane.block.blocks.ChargedEndcloudBlock;
-import com.optane.registry.EnderEndeavorsItems;
+import com.optane.item.EnderEndeavorsItems;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

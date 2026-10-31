@@ -1,4 +1,4 @@
-package com.optane.registry;
+package com.optane.item;
 
 import com.optane.EnderEndeavors;
 import net.minecraft.core.Registry;
@@ -19,7 +19,20 @@ public final class EnderEndeavorsItems {
     private EnderEndeavorsItems() {
         /* Utility class — prevents instantiation. */
     }
+  
+    //Region Item Registration
+  
+    /**
+     * The registered Endcloud Dust item instance.
+     */
+    public static final Item ENDCLOUD_DUST = register(
+            "endcloud_dust",
+            Item::new,
+            new Item.Properties()
+    );
 
+    //Region Helper Methods
+  
     /**
      * Registers a custom item in the game item registry.
      *
