@@ -2,6 +2,7 @@ package com.example.registry;
 
 import com.example.TemplateMod;
 
+import com.example.lang.ModTranslationKeys;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -30,7 +31,7 @@ public final class ModCreativeTab {
             BuiltInRegistries.CREATIVE_MODE_TAB,
             ENDERMOD_TAB_KEY,
             FabricCreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.template-mod.endermod"))
+                    .title(Component.translatable(ModTranslationKeys.CREATIVE_TAB_TITLE))
                     .icon(() -> new ItemStack(Items.ENDER_PEARL))
                     .displayItems(ModCreativeTab::populateTab)
                     .build()
