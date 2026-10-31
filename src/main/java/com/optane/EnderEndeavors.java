@@ -1,6 +1,6 @@
 package com.optane;
 
-import com.optane.registry.ModCreativeTab;
+import com.optane.item.EnderEndeavorsCreativeTab;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -19,7 +19,7 @@ public class EnderEndeavors implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModCreativeTab.register();
+		EnderEndeavorsCreativeTab.register();
 		LOGGER.info("Ender Endeavors initialized!");
 	}
 

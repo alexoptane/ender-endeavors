@@ -1,14 +1,13 @@
-package com.optane.registry;
+package com.optane.item;
 
 import com.optane.EnderEndeavors;
-
-import com.optane.lang.ModTranslationKeys;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,7 +15,7 @@ import net.minecraft.world.item.Items;
 /**
  * Registers all custom creative mode tabs for the Ender Endeavors.
  */
-public final class ModCreativeTab {
+public final class EnderEndeavorsCreativeTab {
 
     /**
      * Resource key identifying the Ender Endeavors creative tab within the registry.
@@ -31,20 +30,21 @@ public final class ModCreativeTab {
             BuiltInRegistries.CREATIVE_MODE_TAB,
             ENDER_ENDEAVORS_TAB_KEY,
             FabricCreativeModeTab.builder()
-                    .title(Component.translatable(ModTranslationKeys.CREATIVE_TAB_TITLE))
+                    .title(Component.translatable(Util.makeDescriptionId("itemGroup", ENDER_ENDEAVORS_TAB_KEY.identifier())))
                     .icon(() -> new ItemStack(Items.ENDER_PEARL))
-                    .displayItems(ModCreativeTab::populateTab)
+                    .displayItems(EnderEndeavorsCreativeTab::populateTab)
                     .build()
     );
 
-    private ModCreativeTab() {
+    private EnderEndeavorsCreativeTab() {
         /* Utility class — prevents instantiation. */
     }
 
     /**
-     * Populates the Ender Endeavors creative tab with all mod items
-     * @param context  display context provided by the creative inventory
-     * @param output   collector that accepts item stacks to display in the tab
+     * Populates the Ender Endeavors creative tab with all mod items.
+     *
+     * @param context display context provided by the creative inventory
+     * @param output  collector that accepts item stacks to display in the tab
      */
     private static void populateTab(CreativeModeTab.ItemDisplayParameters context,
                                     CreativeModeTab.Output output) {
