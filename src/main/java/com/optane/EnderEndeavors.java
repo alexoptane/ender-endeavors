@@ -1,5 +1,7 @@
 package com.optane;
 
+import com.optane.block.EnderEndeavorsBlocks;
+import com.optane.registry.EnderEndeavorsItems;
 import com.optane.item.EnderEndeavorsCreativeTab;
 import com.optane.item.EnderEndeavorsItems;
 
@@ -21,6 +23,7 @@ public class EnderEndeavors implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		EnderEndeavorsItems.register();
+		EnderEndeavorsBlocks.register();
 		EnderEndeavorsCreativeTab.register();
 		LOGGER.info("Ender Endeavors initialized!");
 	}

@@ -5,38 +5,80 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+
+import java.util.function.Function;
 
 /**
- * Registers all custom items for Ender Endeavors.
+ * Registers all custom items and block items for Ender Endeavors.
  */
 public final class EnderEndeavorsItems {
 
-    /** Prevents instantiating */
-    private EnderEndeavorsItems() {}
-
-    /**
-     * ResourceKey identifying the Endcloud Dust item within the item registry.
-     */
-    public static final ResourceKey<Item> ENDCLOUD_DUST_KEY =
-            ResourceKey.create(Registries.ITEM, EnderEndeavors.id("endcloud_dust"));
-
+    private EnderEndeavorsItems() {
+        /* Utility class — prevents instantiation. */
+    }
+  
+    //Region Item Registration
+  
     /**
      * The registered Endcloud Dust item instance.
      */
-    public static final Item ENDCLOUD_DUST = Registry.register(
-            BuiltInRegistries.ITEM,
-            ENDCLOUD_DUST_KEY,
-            new Item(new Item.Properties().setId(ENDCLOUD_DUST_KEY))
+    public static final Item ENDCLOUD_DUST = register(
+            "endcloud_dust",
+            Item::new,
+            new Item.Properties()
     );
 
+    //Region Helper Methods
+  
     /**
-     * Triggers static initialization of mod items.
+     * Registers a custom item in the game item registry.
+     *
+     * @param name        the registry path name of the item
+     * @param itemFactory factory function used to instantiate the item
+     * @param settings    item properties configuration
+     * @return the registered {@link Item} instance
+     */
+    public static Item register(String name,
+                                Function<Item.Properties, Item> itemFactory,
+                                Item.Properties settings) {
+        ResourceKey<Item> itemKey = createItemKey(name);
+        Item item = itemFactory.apply(settings.setId(itemKey));
+        return Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+    }
+
+    /**
+     * Creates and registers a {@link BlockItem} associated with the given block.
+     *
+     * @param name  the registry path name of the block item
+     * @param block the block to associate with the item
+     * @return the registered {@link Item} instance
+     */
+    public static Item registerBlockItem(String name, Block block) {
+        return register(
+                name,
+                properties -> new BlockItem(block, properties),
+                new Item.Properties().useBlockDescriptionPrefix()
+        );
+    }
+
+    /**
+     * Creates an item registry key within the mod namespace.
+     *
+     * @param name the registry path name of the item
+     * @return the corresponding {@link ResourceKey} for the item registry
+     */
+    private static ResourceKey<Item> createItemKey(String name) {
+        return ResourceKey.create(Registries.ITEM, EnderEndeavors.id(name));
+    }
+
+    /**
+     * Triggers static initialization of the item registrations.
      * Must be called during mod initialization.
      */
     public static void register() {
         EnderEndeavors.LOGGER.info("Registering items for " + EnderEndeavors.MOD_ID);
-        EnderEndeavors.LOGGER.info("Registered item key: " + ENDCLOUD_DUST_KEY.identifier());
     }
 }
-
