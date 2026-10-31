@@ -1,5 +1,6 @@
 package com.optane.client.datagen.lang;
 
+import com.optane.block.EnderEndeavorsBlocks;
 import com.optane.item.EnderEndeavorsCreativeTab;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -41,5 +42,6 @@ public class EnderEndeavorsEnglishLangProvider extends FabricLanguageProvider {
 
         //region Items
         //endregion
+        translationBuilder.add(EnderEndeavorsBlocks.ENDCLOUD, "Endcloud");
     }
 }

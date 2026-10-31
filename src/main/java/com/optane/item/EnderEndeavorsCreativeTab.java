@@ -1,6 +1,7 @@
 package com.optane.item;
 
 import com.optane.EnderEndeavors;
+import com.optane.block.EnderEndeavorsBlocks;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -49,6 +50,7 @@ public final class EnderEndeavorsCreativeTab {
     private static void populateTab(CreativeModeTab.ItemDisplayParameters context,
                                     CreativeModeTab.Output output) {
         output.accept(Items.END_ROD);
+        output.accept(EnderEndeavorsBlocks.ENDCLOUD_ITEM);
     }
 
     /**
