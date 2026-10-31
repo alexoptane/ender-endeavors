@@ -1,4 +1,4 @@
-package com.optane.registry;
+package com.optane.item;
 
 import com.optane.EnderEndeavors;
 import net.minecraft.core.Registry;

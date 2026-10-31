@@ -2,7 +2,7 @@ package com.optane.block;
 
 import com.optane.EnderEndeavors;
 import com.optane.block.blocks.ChargedEndcloudBlock;
-import com.optane.registry.EnderEndeavorsItems;
+import com.optane.item.EnderEndeavorsItems;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -24,7 +24,10 @@ public final class EnderEndeavorsBlocks {
     public static final Block CHARGED_ENDCLOUD = register(
             "charged_endcloud",
             ChargedEndcloudBlock::new,
-            BlockBehaviour.Properties.of().sound(SoundType.WOOL),
+            BlockBehaviour.Properties.of()
+                    .sound(SoundType.POWDER_SNOW)
+                    .noOcclusion()
+                    .noCollision(),
             true
     );
 
