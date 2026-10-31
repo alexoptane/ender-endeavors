@@ -2,6 +2,7 @@ package com.optane;
 
 import com.optane.block.EnderEndeavorsBlocks;
 import com.optane.item.EnderEndeavorsCreativeTab;
+import com.optane.block.EnderEndeavorsBlocks;
 import com.optane.item.EnderEndeavorsItems;
 
 import net.fabricmc.api.ModInitializer;

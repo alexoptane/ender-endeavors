@@ -2,6 +2,7 @@ package com.optane.client.datagen.lootTables;
 
 //import com.optane.registry.ModBlocks;
 //import com.optane.registry.ModItems;
+import com.optane.block.EnderEndeavorsBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
@@ -35,5 +36,7 @@ public class EnderEndeavorsBlockLootTableProvider extends FabricBlockLootSubProv
 //        );
 //        add(ModBlocks.CHARGED_ENDCLOUD, noDrop());
 //        add(ModBlocks.END_SINGULARITY, noDrop());
+        add(EnderEndeavorsBlocks.ENDCLOUD,
+                createSilkTouchOnlyTable(EnderEndeavorsBlocks.ENDCLOUD));
     }
 }
