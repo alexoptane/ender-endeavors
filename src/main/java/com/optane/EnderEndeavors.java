@@ -1,7 +1,6 @@
 package com.optane;
 
 import com.optane.block.EnderEndeavorsBlocks;
-import com.optane.registry.EnderEndeavorsItems;
 import com.optane.item.EnderEndeavorsCreativeTab;
 import com.optane.item.EnderEndeavorsItems;
 
