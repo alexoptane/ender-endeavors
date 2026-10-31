@@ -49,6 +49,7 @@ public final class EnderEndeavorsCreativeTab {
      */
     private static void populateTab(CreativeModeTab.ItemDisplayParameters context,
                                     CreativeModeTab.Output output) {
+        output.accept(EnderEndeavorsItems.ENDCLOUD_DUST);
         output.accept(Items.END_ROD);
         output.accept(EnderEndeavorsBlocks.ENDCLOUD_ITEM);
     }

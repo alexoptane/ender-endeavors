@@ -2,6 +2,7 @@ package com.optane.client.datagen.lang;
 
 import com.optane.block.EnderEndeavorsBlocks;
 import com.optane.item.EnderEndeavorsCreativeTab;
+import com.optane.item.EnderEndeavorsItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -41,6 +42,7 @@ public class EnderEndeavorsEnglishLangProvider extends FabricLanguageProvider {
         //endregion
 
         //region Items
+        translationBuilder.add(EnderEndeavorsItems.ENDCLOUD_DUST, "Endcloud Dust");
         //endregion
         translationBuilder.add(EnderEndeavorsBlocks.ENDCLOUD, "Endcloud");
     }
