@@ -13,13 +13,13 @@ import java.util.concurrent.CompletableFuture;
 /**
  *  Generates all data-driven recipes for the mod.
  */
-public class ModRecipeProvider extends FabricRecipeProvider {
+public class EndermodRecipeProvider extends FabricRecipeProvider {
 
     /**
      * @param output            pack output destination for generated files
      * @param registriesFuture  async registry lookup used by the data generation pipeline
      */
-    public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public EndermodRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
