@@ -1,17 +1,14 @@
 package com.optane.block.blocks;
 
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-/**
- * Represents the Charged Endcloud block, an energized variant of Endcloud.
- */
-public class ChargedEndcloudBlock extends Block {
-
+/** Defines the transparent charged Endcloud block. */
+public final class ChargedEndcloudBlock extends TransparentBlock {
     /**
-     * Creates a new Charged Endcloud block with the specified properties.
+     * Creates a charged Endcloud block.
      *
-     * @param properties the block behavior properties
+     * @param properties block settings
      */
     public ChargedEndcloudBlock(BlockBehaviour.Properties properties) {
         super(properties);

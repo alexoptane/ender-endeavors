@@ -9,15 +9,13 @@ import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Generates Spanish language translations for Ender Endeavors.
- */
+/** Generates Spanish translations. */
 public class EnderEndeavorsSpanishLangProvider extends FabricLanguageProvider {
 
     /**
-     * Creates a new Spanish language provider instance.
+     * Creates the Spanish translation provider.
      *
-     * @param dataOutput     pack output destination for generated files
+     * @param dataOutput pack output destination for generated files
      * @param registryLookup async registry lookup used by the data generation pipeline
      */
     public EnderEndeavorsSpanishLangProvider(FabricPackOutput dataOutput,
@@ -25,12 +23,6 @@ public class EnderEndeavorsSpanishLangProvider extends FabricLanguageProvider {
         super(dataOutput, "es_es", registryLookup);
     }
 
-    /**
-     * Registers all Spanish translation entries for the mod.
-     *
-     * @param registryLookup     registry lookup provided by the data generation pipeline
-     * @param translationBuilder builder used to register translation entries
-     */
     @Override
     public void generateTranslations(HolderLookup.Provider registryLookup,
                                      TranslationBuilder translationBuilder) {

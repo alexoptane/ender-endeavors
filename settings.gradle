@@ -10,4 +10,4 @@ pluginManagement {
 }
 
 // Should match your modid
-rootProject.name = 'ender-endeavors'
+rootProject.name = 'ender_endeavors'

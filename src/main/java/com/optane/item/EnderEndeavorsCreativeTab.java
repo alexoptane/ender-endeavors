@@ -13,20 +13,18 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-/**
- * Registers all custom creative mode tabs for the Ender Endeavors.
- */
+/** Registers the mod's creative tab. */
 public final class EnderEndeavorsCreativeTab {
+    /** Prevents instantiation. */
+    private EnderEndeavorsCreativeTab() {}
+    /** Triggers static tab registration. Must be called during mod initialization. */
+    public static void register() {
+        EnderEndeavors.LOGGER.info("Registering creative tab for " + EnderEndeavors.MOD_ID);
+    }
 
-    /**
-     * Resource key identifying the Ender Endeavors creative tab within the registry.
-     */
     public static final ResourceKey<CreativeModeTab> ENDER_ENDEAVORS_TAB_KEY =
-            ResourceKey.create(Registries.CREATIVE_MODE_TAB, EnderEndeavors.id("ender-endeavors"));
+            ResourceKey.create(Registries.CREATIVE_MODE_TAB, EnderEndeavors.id("creative_tab"));
 
-    /**
-     * The registered Ender Endeavors creative mode tab instance.
-     */
     public static final CreativeModeTab ENDER_ENDEAVORS_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
             ENDER_ENDEAVORS_TAB_KEY,
@@ -37,29 +35,19 @@ public final class EnderEndeavorsCreativeTab {
                     .build()
     );
 
-    private EnderEndeavorsCreativeTab() {
-        /* Utility class — prevents instantiation. */
-    }
 
     /**
-     * Populates the Ender Endeavors creative tab with all mod items.
+     * Adds items to the creative tab.
      *
-     * @param context display context provided by the creative inventory
-     * @param output  collector that accepts item stacks to display in the tab
+     * @param context display context
+     * @param output tab entries
      */
     private static void populateTab(CreativeModeTab.ItemDisplayParameters context,
                                     CreativeModeTab.Output output) {
         output.accept(EnderEndeavorsItems.ENDCLOUD_DUST);
-        output.accept(Items.END_ROD);
-        output.accept(EnderEndeavorsBlocks.ENDCLOUD_ITEM);
+        output.accept(EnderEndeavorsBlocks.ENDCLOUD);
+        output.accept(EnderEndeavorsBlocks.CHARGED_ENDCLOUD);
     }
 
-    /**
-     * Triggers static initialization of the creative tab registration.
-     * Must be called during mod initialization.
-     */
-    public static void register() {
-        EnderEndeavors.LOGGER.info("Registering creative tabs for " + EnderEndeavors.MOD_ID);
-        EnderEndeavors.LOGGER.info("Registered creative tab key: " + ENDER_ENDEAVORS_TAB_KEY.identifier());
-    }
+
 }

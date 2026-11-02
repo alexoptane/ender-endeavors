@@ -9,22 +9,21 @@ import net.minecraft.core.HolderLookup;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Generates all block loot tables for the Ender Endeavors.
+ * Generates block loot tables.
  */
 public class EnderEndeavorsBlockLootTableProvider extends FabricBlockLootSubProvider {
 
     /**
-     * @param output        pack output destination for generated files
-     * @param registries    async registry lookup used by the data generation pipeline
+     * Creates the block loot provider.
+     *
+     * @param output pack output destination for generated files
+     * @param registries async registry lookup used by the data generation pipeline
      */
     public EnderEndeavorsBlockLootTableProvider(FabricPackOutput output,
                                           CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
 
-    /**
-     * Registers one loot table per block; every block in ModBlocks must have an entry here.
-     */
     @Override
     public void generate() {
 //        add(ModBlocks.ENDCLOUD,

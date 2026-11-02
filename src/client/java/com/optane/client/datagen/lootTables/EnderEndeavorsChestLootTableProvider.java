@@ -15,9 +15,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntPr
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
-/**
- * Generates all chest loot tables for the Ender Endeavors.
- */
+/** Provides chest loot tables. */
 public class EnderEndeavorsChestLootTableProvider extends SimpleFabricLootTableSubProvider {
 
     /**
@@ -25,28 +23,26 @@ public class EnderEndeavorsChestLootTableProvider extends SimpleFabricLootTableS
      */
     public static final ResourceKey<LootTable> END_CITY_ARMOR_TEMPLATE =
             ResourceKey.create(Registries.LOOT_TABLE,
-                    Identifier.fromNamespaceAndPath("ender-endeavors", "chests/end_city_armor_template"));
+                    Identifier.fromNamespaceAndPath("ender_endeavors", "chests/end_city_armor_template"));
 
     /**
      * Loot table for the chest containing the chestplate-elytra fusion smithing template.
      */
     public static final ResourceKey<LootTable> END_CITY_ELYTRA_TEMPLATE =
             ResourceKey.create(Registries.LOOT_TABLE,
-                    Identifier.fromNamespaceAndPath("ender-endeavors", "chests/end_city_elytra_template"));
+                    Identifier.fromNamespaceAndPath("ender_endeavors", "chests/end_city_elytra_template"));
 
     /**
-     * @param output        pack output destination for generated files
-     * @param registries    async registry lookup used by the data generation pipeline
+     * Creates the chest loot provider.
+     *
+     * @param output pack output destination for generated files
+     * @param registries async registry lookup used by the data generation pipeline
      */
     public EnderEndeavorsChestLootTableProvider(FabricPackOutput output,
                                           CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, LootContextParamSets.CHEST);
     }
 
-    /**
-     * Registers one loot table per End City chest variant.
-     * @param exporter  consumer that writes each table to disk
-     */
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> exporter) {
 //        exporter.accept(END_CITY_ARMOR_TEMPLATE,

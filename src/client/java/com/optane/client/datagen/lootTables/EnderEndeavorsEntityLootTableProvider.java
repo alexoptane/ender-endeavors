@@ -12,23 +12,20 @@ import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntPr
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- * Generates all entity loot tables for the Ender Endeavors.
- */
+/** Provides entity loot tables. */
 public class EnderEndeavorsEntityLootTableProvider extends FabricEntityLootSubProvider {
 
     /**
-     * @param output        pack output destination for generated files
-     * @param registries    async registry lookup used by the data generation pipeline
+     * Creates the entity loot provider.
+     *
+     * @param output pack output destination for generated files
+     * @param registries async registry lookup used by the data generation pipeline
      */
     public EnderEndeavorsEntityLootTableProvider(FabricPackOutput output,
                                            CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
 
-    /**
-     * Registers one loot table per entity type; every entity in {@link ModEntities} must have an entry here.
-     */
     @Override
     public void generate() {
 //        add(ModEntities.ENDER_PHANTOM,
