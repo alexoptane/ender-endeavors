@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "ender-endeavors",
+	"id": "ender_endeavors",
 	"version": "${version}",
 	"name": "Ender Endeavors",
 	"description": "A work-in-progress Fabric mod that aims to make Minecraft's End more challenging and rewarding with reworked mechanics, new challenges, and clearer progression.",
@@ -15,7 +15,7 @@
 		"sources": "https://github.com/alexoptane/ender-endeavors"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/ender-endeavors/icon.png",
+	"icon": "assets/ender_endeavors/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -29,9 +29,9 @@
 		]
 	},
 	"mixins": [
-		"ender-endeavors.mixins.json",
+		"ender_endeavors.mixins.json",
 		{
-			"config": "ender-endeavors.client.mixins.json",
+			"config": "ender_endeavors.client.mixins.json",
 			"environment": "client"
 		}
 	],

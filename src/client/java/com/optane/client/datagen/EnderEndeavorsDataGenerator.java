@@ -9,6 +9,7 @@ import com.optane.client.datagen.recipes.EnderEndeavorsRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
+/** Configures mod data generation. */
 public class EnderEndeavorsDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {

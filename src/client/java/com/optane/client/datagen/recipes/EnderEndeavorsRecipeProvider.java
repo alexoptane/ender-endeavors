@@ -10,43 +10,40 @@ import net.minecraft.world.item.crafting.Recipe;
 
 import java.util.concurrent.CompletableFuture;
 
-/**
- *  Generates all data-driven recipes for the mod.
- */
+/** Provides mod recipes. */
 public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
 
     /**
-     * @param output            pack output destination for generated files
-     * @param registriesFuture  async registry lookup used by the data generation pipeline
+     * Creates the recipe provider.
+     *
+     * @param output pack output destination for generated files
+     * @param registriesFuture async registry lookup used by the data generation pipeline
      */
     public EnderEndeavorsRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     /**
-     * Returns the generator that registers all mod recipes.
-     * Add a call per recipe group inside {@code buildRecipes()}; keep each group in its own method.
-     * @param registries  registry lookup provided by the data generation pipeline
-     * @param recipes     bootstrap context used to register recipe entries
-     * @param advancements bootstrap context used to register unlock advancements
+     * Creates the recipe generator.
+     *
+     * @param registries registry lookup
+     * @param recipes recipe registry context
+     * @param advancements advancement registry context
+     * @return recipe generator
      */
     @Override
     protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries,
                                                   BootstrapContext<Recipe<?>> recipes,
                                                   BootstrapContext<Advancement> advancements) {
         return new RecipeProvider(recipes, advancements) {
-            /**
-             * Entry point for recipe registration; delegates to one method per recipe group.
-             */
+            /** Registers recipe groups. */
             @Override
             public void buildRecipes() {
-                registerEndcloudRecipes();
+                registerEndcloudRecipe();
             }
 
-            /**
-             *  Recipes related to Endcloud and its variants.
-             */
-            private void registerEndcloudRecipes() {
+            /** Endcloud recipe hook. */
+            private void registerEndcloudRecipe() {
 
 //                 --- Example: Endcloud block (4x Endcloud Dust, like Glowstone) ---
 //                private void registerEndcloudRecipes() {
@@ -62,12 +59,4 @@ public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
         };
     }
 
-    /**
-     * @return human-readable name shown in data generation logs
-     */
-    @Override
-    public String getName() {
-
-        return "Ender Endeavors Recipe Provider";
-    }
 }
