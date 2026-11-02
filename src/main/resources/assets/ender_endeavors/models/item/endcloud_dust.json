@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "ender-endeavors:item/endcloud_dust"
+    "layer0": "ender_endeavors:item/endcloud_dust"
   }
 }
