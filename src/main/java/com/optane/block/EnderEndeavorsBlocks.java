@@ -31,6 +31,7 @@ public final class EnderEndeavorsBlocks {
             BlockBehaviour.Properties.of()
                     .sound(SoundType.POWDER_SNOW)
                     .noOcclusion()
+                    .lightLevel(state -> 3)
     );
 
 
