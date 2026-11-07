@@ -40,6 +40,7 @@ public final class EnderEndeavorsBlocks {
             BlockBehaviour.Properties.of()
                     .sound(SoundType.WOOL)
                     .noOcclusion()
+                    .lightLevel(state -> 6)
     );
 
 
