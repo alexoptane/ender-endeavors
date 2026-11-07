@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    name: Generate data and build mod
+    name: Generate data, run GameTests, and build mod
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
@@ -50,10 +50,20 @@ jobs:
         env:
           JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
 
-      - name: Build mod
+      - name: Run GameTests and build mod
         run: ./gradlew --no-daemon build
         env:
           JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
+
+      - name: Upload GameTest report and log
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ender-endeavors-gametest-results
+          path: |
+            build/run/gameTest/reports/gametest-results.xml
+            build/run/gameTest/logs/latest.log
+          if-no-files-found: ignore
 
       - name: Select distributable mod JAR
         id: distributable
