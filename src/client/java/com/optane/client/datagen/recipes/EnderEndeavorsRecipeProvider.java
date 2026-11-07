@@ -1,9 +1,11 @@
 package com.optane.client.datagen.recipes;
 
+import com.optane.block.EnderEndeavorsBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.crafting.Recipe;
@@ -40,6 +42,7 @@ public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
             @Override
             public void buildRecipes() {
                 registerEndcloudRecipe();
+                registerChargedEndcloudRecipe();
             }
 
             /** Endcloud recipe hook. */
@@ -55,6 +58,15 @@ public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
 //                        .unlockedBy(getHasName(ModItems.ENDCLOUD_DUST), has(ModItems.ENDCLOUD_DUST))
 //                        .save(exporter);
 //                }
+            }
+
+            /** Registers the Charged Endcloud crafting recipe. */
+            private void registerChargedEndcloudRecipe() {
+                threeByThreePacker(
+                        RecipeCategory.BUILDING_BLOCKS,
+                        EnderEndeavorsBlocks.CHARGED_ENDCLOUD,
+                        EnderEndeavorsBlocks.ENDCLOUD
+                );
             }
         };
     }
