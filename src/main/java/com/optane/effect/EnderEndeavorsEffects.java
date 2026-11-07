@@ -1,6 +1,7 @@
 package com.optane.effect;
 
 import com.optane.EnderEndeavors;
+import com.optane.effect.effects.EndRadiation;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
