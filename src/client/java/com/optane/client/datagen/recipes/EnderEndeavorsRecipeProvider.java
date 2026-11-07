@@ -43,6 +43,7 @@ public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
             @Override
             public void buildRecipes() {
                 registerEndcloudRecipe();
+                registerChargedEndcloudRecipe();
             }
 
             /** Endcloud recipe hook. */
@@ -51,6 +52,15 @@ public class EnderEndeavorsRecipeProvider extends FabricRecipeProvider {
                         RecipeCategory.BUILDING_BLOCKS,
                         EnderEndeavorsBlocks.ENDCLOUD,
                         EnderEndeavorsItems.ENDCLOUD_DUST
+                );
+            }
+
+            /** Registers the Charged Endcloud crafting recipe. */
+            private void registerChargedEndcloudRecipe() {
+                threeByThreePacker(
+                        RecipeCategory.BUILDING_BLOCKS,
+                        EnderEndeavorsBlocks.CHARGED_ENDCLOUD,
+                        EnderEndeavorsBlocks.ENDCLOUD
                 );
             }
         };
