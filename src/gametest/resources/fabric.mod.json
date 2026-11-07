@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "ender_endeavors_gametest",
+	"version": "1.0.0",
+	"name": "Ender Endeavors Game Tests",
+	"environment": "server",
+	"entrypoints": {
+		"fabric-gametest": [
+			"com.optane.block.LightBlocksGameTest"
+		]
+	},
+	"depends": {
+		"ender_endeavors": "*"
+	}
+}
