@@ -22,11 +22,25 @@ loom {
 	}
 }
 
+def gameTestModId = "ender_endeavors_gametest"
+
 fabricApi {
 	configureDataGeneration {
 		client = true
 		modId = "ender_endeavors"
 	}
+
+	configureTests {
+		createSourceSet = true
+		modId = gameTestModId
+		enableClientGameTests = false
+	}
+}
+
+loom.runs.named("gameTest") {
+	displayName = "Minecraft Game Test"
+	systemProperties.put("fabric-api.gametest.filter", gameTestModId + ":*")
+	systemProperties.put("fabric-api.gametest.report-file", "reports/gametest-results.xml")
 }
 
 dependencies {
