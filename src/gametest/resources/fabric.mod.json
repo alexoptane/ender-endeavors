@@ -3,12 +3,21 @@
 	"id": "ender_endeavors_gametest",
 	"version": "1.0.0",
 	"name": "Ender Endeavors Game Tests",
-	"environment": "server",
+	"environment": "*",
 	"entrypoints": {
 		"fabric-gametest": [
 			"com.optane.block.LightBlocksGameTest"
+		],
+		"fabric-client-gametest": [
+			"com.optane.event.EndFlashClientGameTest"
 		]
 	},
+	"mixins": [
+		{
+			"config": "ender_endeavors.gametest.client.mixins.json",
+			"environment": "client"
+		}
+	],
 	"depends": {
 		"ender_endeavors": "*"
 	}

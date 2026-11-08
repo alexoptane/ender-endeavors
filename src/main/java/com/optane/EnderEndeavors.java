@@ -2,8 +2,10 @@ package com.optane;
 
 import com.optane.block.EnderEndeavorsBlocks;
 import com.optane.effect.EnderEndeavorsEffects;
+import com.optane.event.EnderEndeavorsEvents;
 import com.optane.item.EnderEndeavorsCreativeTab;
 import com.optane.item.EnderEndeavorsItems;
+import com.optane.radiation.EndRadiationEventHandlers;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
@@ -24,6 +26,8 @@ public class EnderEndeavors implements ModInitializer {
 		EnderEndeavorsBlocks.register();
 		EnderEndeavorsEffects.register();
 		EnderEndeavorsCreativeTab.register();
+		EnderEndeavorsEvents.register();
+		EndRadiationEventHandlers.register();
 		LOGGER.info("Ender Endeavors initialized!");
 	}
 
