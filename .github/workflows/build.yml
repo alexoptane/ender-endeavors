@@ -1,4 +1,4 @@
-name: Build and release Ender Endeavors
+name: Ender Endeavors CI
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    name: Generate data, run GameTests, and build mod
+    name: Build and test
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
@@ -50,12 +50,27 @@ jobs:
         env:
           JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
 
-      - name: Run GameTests and build mod
+      - name: Server GameTests and mod build
         run: ./gradlew --no-daemon build
         env:
           JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
 
-      - name: Upload GameTest report and log
+      - name: End Flash Sync (client and server)
+        timeout-minutes: 10
+        env:
+          ACCEPT_MINECRAFT_EULA: ${{ vars.ACCEPT_MINECRAFT_EULA }}
+          ALSOFT_DRIVERS: 'null'
+          LIBGL_ALWAYS_SOFTWARE: 'true'
+        run: |
+          if [[ "$ACCEPT_MINECRAFT_EULA" != 'true' ]]; then
+            echo '::error::The client GameTest starts a Minecraft server. After accepting https://aka.ms/MinecraftEULA for CI, set the repository Actions variable ACCEPT_MINECRAFT_EULA to true.'
+            exit 1
+          fi
+          sudo apt-get update
+          sudo apt-get install -y xvfb xauth libgl1-mesa-dri libglx-mesa0
+          xvfb-run -a -s '-screen 0 1280x720x24' ./gradlew --no-daemon runClientGameTest -PacceptMinecraftEula=true
+
+      - name: Upload GameTest reports and logs
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
         with:
@@ -63,6 +78,8 @@ jobs:
           path: |
             build/run/gameTest/reports/gametest-results.xml
             build/run/gameTest/logs/latest.log
+            build/run/clientGameTest/logs/latest.log
+            build/run/clientGameTest/crash-reports/
           if-no-files-found: ignore
 
       - name: Select distributable mod JAR
