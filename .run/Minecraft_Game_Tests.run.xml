@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Minecraft Game Tests" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="env">
+        <map>
+          <entry key="ALSOFT_DRIVERS" value="null" />
+        </map>
+      </option>
+      <option name="externalProjectPath" value="$PROJECT_DIR$" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="--no-parallel -PuseLocalGameTestEula" />
+      <option name="taskNames">
+        <list>
+          <option value=":runGameTest" />
+          <option value=":runClientGameTest" />
+        </list>
+      </option>
+    </ExternalSystemSettings>
+    <method v="2" />
+  </configuration>
+</component>

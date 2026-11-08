@@ -14,6 +14,10 @@ repositories {
 loom {
 	splitEnvironmentSourceSets()
 
+	runs.configureEach {
+		generateRunConfig.set(false)
+	}
+
 	mods {
 		"ender_endeavors" {
 			sourceSet sourceSets.main
@@ -23,6 +27,11 @@ loom {
 }
 
 def gameTestModId = "ender_endeavors_gametest"
+def localGameTestEula = providers.gradleProperty('useLocalGameTestEula')
+	.flatMap { providers.fileContents(layout.projectDirectory.file('.gradle/accept-minecraft-eula')).asText }
+def acceptMinecraftEula = providers.gradleProperty('acceptMinecraftEula')
+	.orElse(localGameTestEula)
+	.map { it.trim().toBoolean() }
 
 fabricApi {
 	configureDataGeneration {
@@ -33,7 +42,8 @@ fabricApi {
 	configureTests {
 		createSourceSet = true
 		modId = gameTestModId
-		enableClientGameTests = false
+		enableClientGameTests = true
+		eula = acceptMinecraftEula.getOrElse(false)
 	}
 }
 
