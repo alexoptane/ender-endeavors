@@ -50,12 +50,7 @@ jobs:
         env:
           JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
 
-      - name: Server GameTests and mod build
-        run: ./gradlew --no-daemon build
-        env:
-          JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
-
-      - name: End Flash Sync (client and server)
+      - name: Client GameTests
         timeout-minutes: 10
         env:
           ACCEPT_MINECRAFT_EULA: ${{ vars.ACCEPT_MINECRAFT_EULA }}
@@ -71,6 +66,11 @@ jobs:
           sudo apt-get install -y xvfb xauth libvulkan1 mesa-vulkan-drivers
           xvfb-run -a -s '-screen 0 1280x720x24' ./gradlew --no-daemon \
             runClientGameTest -PacceptMinecraftEula=true --args='--graphicsBackend vulkan'
+
+      - name: Server GameTests and mod build
+        run: ./gradlew --no-daemon build
+        env:
+          JAVA_TOOL_OPTIONS: '-Djava.awt.headless=true'
 
       - name: Upload GameTest reports and logs
         if: ${{ !cancelled() }}
