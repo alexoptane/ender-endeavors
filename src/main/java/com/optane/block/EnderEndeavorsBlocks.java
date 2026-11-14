@@ -32,6 +32,8 @@ public final class EnderEndeavorsBlocks {
                     .sound(SoundType.POWDER_SNOW)
                     .noOcclusion()
                     .lightLevel(state -> 3)
+                    .strength(0.4f, 0)
+                    .requiresCorrectToolForDrops()
     );
 
 

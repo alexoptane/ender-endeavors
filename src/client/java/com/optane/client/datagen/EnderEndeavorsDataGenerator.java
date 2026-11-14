@@ -6,6 +6,7 @@ import com.optane.client.datagen.lootTables.EnderEndeavorsBlockLootTableProvider
 import com.optane.client.datagen.lootTables.EnderEndeavorsChestLootTableProvider;
 import com.optane.client.datagen.lootTables.EnderEndeavorsEntityLootTableProvider;
 import com.optane.client.datagen.recipes.EnderEndeavorsRecipeProvider;
+import com.optane.client.datagen.tags.EnderEndeavorsBlockTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -16,6 +17,7 @@ public class EnderEndeavorsDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack enderEndeavorsPack = fabricDataGenerator.createPack();
 		enderEndeavorsPack.addProvider(EnderEndeavorsEnglishLangProvider::new);
 		enderEndeavorsPack.addProvider(EnderEndeavorsSpanishLangProvider::new);
+		enderEndeavorsPack.addProvider(EnderEndeavorsBlockTagProvider::new);
 		enderEndeavorsPack.addProvider(EnderEndeavorsRecipeProvider::new);
 		enderEndeavorsPack.addProvider(EnderEndeavorsBlockLootTableProvider::new);
 		enderEndeavorsPack.addProvider(EnderEndeavorsChestLootTableProvider::new);
