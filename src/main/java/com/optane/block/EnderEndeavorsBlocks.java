@@ -3,6 +3,7 @@ package com.optane.block;
 import com.optane.EnderEndeavors;
 import com.optane.block.blocks.ChargedEndcloudBlock;
 import com.optane.block.blocks.EndcloudBlock;
+import com.optane.block.blocks.EndSingularityBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.references.BlockItemId;
@@ -44,6 +45,15 @@ public final class EnderEndeavorsBlocks {
                     .sound(SoundType.WOOL)
                     .noOcclusion()
                     .lightLevel(state -> 6)
+    );
+
+    public static final Block END_SINGULARITY = register(
+            EnderEndeavorsBlockItemIds.END_SINGULARITY,
+            EndSingularityBlock::new,
+            BlockBehaviour.Properties.of()
+                    .sound(SoundType.AMETHYST)
+                    .strength(4.0F, 12.0F)
+                    .requiresCorrectToolForDrops()
     );
 
 

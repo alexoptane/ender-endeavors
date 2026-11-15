@@ -39,6 +39,7 @@ public class EnderEndeavorsBlockLootTableProvider extends FabricBlockLootSubProv
 
     @Override
     public void generate() {
+        add(EnderEndeavorsBlocks.END_SINGULARITY, noDrop());
         add(EnderEndeavorsBlocks.ENDCLOUD,
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()

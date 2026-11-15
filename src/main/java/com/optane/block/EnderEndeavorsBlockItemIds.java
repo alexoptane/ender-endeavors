@@ -11,6 +11,7 @@ public final class EnderEndeavorsBlockItemIds {
 
     public static final BlockItemId ENDCLOUD = create("endcloud");
     public static final BlockItemId CHARGED_ENDCLOUD = create("charged_endcloud");
+    public static final BlockItemId END_SINGULARITY = create("end_singularity");
 
     /**
      * Creates block and item keys sharing an identifier.
