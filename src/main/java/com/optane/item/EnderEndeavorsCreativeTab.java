@@ -47,6 +47,8 @@ public final class EnderEndeavorsCreativeTab {
         output.accept(EnderEndeavorsItems.ENDCLOUD_DUST);
         output.accept(EnderEndeavorsBlocks.ENDCLOUD);
         output.accept(EnderEndeavorsBlocks.CHARGED_ENDCLOUD);
+        output.accept(EnderEndeavorsBlocks.END_SINGULARITY);
+        output.accept(EnderEndeavorsItems.ENDER_ESSENCE);
     }
 
 
