@@ -35,6 +35,7 @@ public class EnderEndeavorsBlockLootTableProvider extends FabricBlockLootSubProv
 //        );
 //        add(ModBlocks.CHARGED_ENDCLOUD, noDrop());
 //        add(ModBlocks.END_SINGULARITY, noDrop());
+        add(EnderEndeavorsBlocks.END_SINGULARITY, noDrop());
         add(EnderEndeavorsBlocks.ENDCLOUD,
                 createSilkTouchOnlyTable(EnderEndeavorsBlocks.ENDCLOUD));
     }
