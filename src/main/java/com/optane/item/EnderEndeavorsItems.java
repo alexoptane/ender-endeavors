@@ -23,6 +23,12 @@ public final class EnderEndeavorsItems {
             Item::new,
             new Item.Properties()
     );
+
+    public static final Item ENDER_ESSENCE = register(
+            EnderEndeavorsItemIds.ENDER_ESSENCE,
+            Item::new,
+            new Item.Properties()
+    );
     //endregion
 
     //region Helper Methods
