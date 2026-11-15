@@ -11,6 +11,7 @@ public final class EnderEndeavorsItemIds {
     private EnderEndeavorsItemIds() {}
 
     public static final ResourceKey<Item> ENDCLOUD_DUST = create("endcloud_dust");
+    public static final ResourceKey<Item> ENDER_ESSENCE = create("ender_essence");
 
     /**
      * Creates an item key in the mod namespace.
