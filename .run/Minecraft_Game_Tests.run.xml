@@ -8,7 +8,7 @@
       </option>
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="--no-parallel -PuseLocalGameTestEula" />
+      <option name="scriptParameters" value="--no-parallel -PacceptMinecraftEula=true" />
       <option name="taskNames">
         <list>
           <option value=":runGameTest" />

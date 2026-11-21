@@ -43,7 +43,6 @@ public class EnderEndeavorsBlockLootTableProvider extends FabricBlockLootSubProv
         add(EnderEndeavorsBlocks.ENDCLOUD,
                 LootTable.lootTable().withPool(
                         LootPool.lootPool()
-                                // Explosion loot contexts have no tool, so this gate prevents explosion drops.
                                 .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(this.items, ItemTags.SHOVELS)))
                                 .add(AlternativesEntry.alternatives(
                                         LootItem.lootTableItem(EnderEndeavorsBlocks.ENDCLOUD)
@@ -54,5 +53,12 @@ public class EnderEndeavorsBlockLootTableProvider extends FabricBlockLootSubProv
                                                         this.enchantments.getOrThrow(Enchantments.FORTUNE)))
                                                 .apply(LimitCount.limitCount(IntLimit.upperBound(4)))
                                 ))));
+        add(EnderEndeavorsBlocks.CHARGED_ENDCLOUD,
+                LootTable.lootTable().withPool(
+                        LootPool.lootPool()
+                                .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(this.items, ItemTags.SHOVELS)))
+                                .when(this.hasSilkTouch())
+                                .add(LootItem.lootTableItem(EnderEndeavorsBlocks.CHARGED_ENDCLOUD))
+                ));
     }
 }
