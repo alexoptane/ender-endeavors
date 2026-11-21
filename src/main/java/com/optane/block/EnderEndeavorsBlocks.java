@@ -45,6 +45,8 @@ public final class EnderEndeavorsBlocks {
                     .sound(SoundType.WOOL)
                     .noOcclusion()
                     .lightLevel(state -> 6)
+                    .strength(0.6f, 0)
+                    .requiresCorrectToolForDrops()
     );
 
     public static final Block END_SINGULARITY = register(
