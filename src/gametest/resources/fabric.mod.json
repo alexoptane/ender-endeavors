@@ -8,6 +8,7 @@
 		"fabric-gametest": [
 			"com.optane.block.LightBlocksGameTest",
 			"com.optane.block.EndcloudLootGameTest",
+			"com.optane.block.blocks.EndcloudParticleGameTest",
 			"com.optane.block.ChargedEndcloudLootGameTest"
 		],
 		"fabric-client-gametest": [
