@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -23,15 +24,19 @@ public final class EndcloudBlock extends TransparentBlock {
         super(properties);
     }
 
+    static boolean canEmitAmbientParticles(BlockGetter level, BlockPos pos) {
+        BlockPos belowPos = pos.below();
+        return !level.getBlockState(belowPos).isCollisionShapeFullBlock(level, belowPos);
+    }
+
     /** Emits vanilla reverse-portal motes that drift into the block's underside. */
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        BlockPos belowPos = pos.below();
-        if (level.getBlockState(belowPos).isCollisionShapeFullBlock(level, belowPos)) {
+        if (!canEmitAmbientParticles(level, pos)) {
             return;
         }
 
-        if (random.nextFloat() >= 0.725F) {
+        if (random.nextFloat() >= 0.275F) {
             return;
         }
 
