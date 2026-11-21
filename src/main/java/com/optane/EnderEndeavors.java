@@ -8,6 +8,10 @@ import com.optane.item.EnderEndeavorsItems;
 import com.optane.radiation.EndRadiationEventHandlers;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 
 import org.slf4j.Logger;
@@ -19,11 +23,13 @@ public class EnderEndeavors implements ModInitializer {
 	public static final String MOD_ID = "ender_endeavors";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final SimpleParticleType ENDCLOUD_DUST_PALE = FabricParticleTypes.simple();
 
 	@Override
 	public void onInitialize() {
 		EnderEndeavorsItems.register();
 		EnderEndeavorsBlocks.register();
+		Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("endcloud_dust_pale"), ENDCLOUD_DUST_PALE);
 		EnderEndeavorsEffects.register();
 		EnderEndeavorsCreativeTab.register();
 		EnderEndeavorsEvents.register();
