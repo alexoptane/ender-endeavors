@@ -18,6 +18,7 @@ public class EnderEndeavorsBlockTagProvider extends FabricTagsProvider.BlockTags
     @Override
     protected void addTags(HolderLookup.Provider registries) {
         builder(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(EnderEndeavorsBlockItemIds.ENDCLOUD.block());
+                .add(EnderEndeavorsBlockItemIds.ENDCLOUD.block())
+                .add(EnderEndeavorsBlockItemIds.CHARGED_ENDCLOUD.block());
     }
 }
