@@ -6,7 +6,11 @@
 	"environment": "*",
 	"entrypoints": {
 		"fabric-gametest": [
-			"com.optane.block.LightBlocksGameTest"
+			"com.optane.block.LightBlocksGameTest",
+			"com.optane.radiation.PlayerEndRadiationGameTest",
+			"com.optane.block.EndcloudLootGameTest",
+			"com.optane.block.ChargedEndcloudLootGameTest",
+			"com.optane.block.blocks.ChargedEndcloudParticleGameTest"
 		],
 		"fabric-client-gametest": [
 			"com.optane.event.EndFlashClientGameTest"

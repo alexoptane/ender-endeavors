@@ -33,10 +33,12 @@ public class EnderEndeavorsEnglishLangProvider extends FabricLanguageProvider {
         //region Blocks
         translationBuilder.add(EnderEndeavorsBlocks.ENDCLOUD, "Endcloud");
         translationBuilder.add(EnderEndeavorsBlocks.CHARGED_ENDCLOUD, "Charged Endcloud");
+        translationBuilder.add(EnderEndeavorsBlocks.END_SINGULARITY, "End Singularity");
         //endregion
 
         //region Items
         translationBuilder.add(EnderEndeavorsItems.ENDCLOUD_DUST, "Endcloud Dust");
+        translationBuilder.add(EnderEndeavorsItems.ENDER_ESSENCE, "Ender Essence");
         //endregion
     }
 }

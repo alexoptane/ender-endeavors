@@ -5,6 +5,7 @@ import com.optane.effect.EnderEndeavorsEffects;
 import com.optane.event.EnderEndeavorsEvents;
 import com.optane.item.EnderEndeavorsCreativeTab;
 import com.optane.item.EnderEndeavorsItems;
+import com.optane.particle.EnderEndeavorsParticles;
 import com.optane.radiation.EndRadiationEventHandlers;
 
 import net.fabricmc.api.ModInitializer;
@@ -24,6 +25,7 @@ public class EnderEndeavors implements ModInitializer {
 	public void onInitialize() {
 		EnderEndeavorsItems.register();
 		EnderEndeavorsBlocks.register();
+		EnderEndeavorsParticles.register();
 		EnderEndeavorsEffects.register();
 		EnderEndeavorsCreativeTab.register();
 		EnderEndeavorsEvents.register();
