@@ -51,7 +51,7 @@ public final class PlayerEndRadiationGameTest {
                     scenario.assertFlash(100);
                     MobEffectInstance radiation = assertRadiationDuration(helper, player, 900);
                     helper.assertValueEqual(radiation.getAmplifier(), 0, "radiation amplifier");
-                    helper.assertTrue(radiation.isAmbient(), "radiation should be ambient");
+                    helper.assertFalse(radiation.isAmbient(), "radiation should not be ambient");
                     helper.assertTrue(radiation.showIcon(), "radiation should show its icon");
                 }
                 case 101 -> {
